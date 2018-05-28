@@ -1,12 +1,26 @@
 <!--index.wxml-->
 <view class="container">
   <view class="item">
-    <input class='item-input' placeholder='总价'></input>
-    <input class='item-input' placeholder='面积'></input>
+    <text class='item-text'>总价</text>
+    <input class='item-input1' type='digit' placeholder='总价' data-item='ZongJia' bindinput='bindZongJia'></input>
+    <text class='item-text'>面积</text>
+    <input class='item-input1' type='digit' placeholder='面积' bindinput='bindMianJi'></input>
   </view>
   <view class="item">
-    <input class='item-input' placeholder='评估总价'></input>
-    <input class='item-input' placeholder='评估单价'></input>
+    <text class='item-text'>评估价</text>
+    <input class='item-input1' type='digit' placeholder='评估总价' bindinput='bindPingGuJia'></input>
+    <text class='item-text'>评估单价</text>
+    <input class='item-input1' type='digit' placeholder='评估单价' bindinput='bindPingGuDanJia'></input>
+  </view>
+
+  <view class="item">
+    <text class='item-text'>首付：</text>
+    <input class='item-input1' value='{{ShouFuBL}}' type='digit' bindinput='bindShouFuBL'></input>
+    <input class='item-input2' value='{{ShouFu}}' type='digit' bindinput='bindShouFu'></input>
+  </view>
+
+  <view class="item">
+    <button bindtap='test'>测试</button>
   </view>
 
 </view>

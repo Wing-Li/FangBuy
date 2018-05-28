@@ -1,10 +1,33 @@
 /**index.wxss**/
 
-.item {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.container {
+  padding: 24rpx 0;
 }
 
-.item-input{
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.item-text {
+  flex: 1;
+  margin: 16rpx 24rpx 5rpx;
+}
+
+.item-input1 {
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 3px 0px;
+  border-radius: 3px; /*css3属性IE不支持*/
+  padding-left: 5px;
+  margin: 16rpx 24rpx;
+}
+
+.item-input2 {
+  flex: 2;
+  border: 1px solid #ccc;
+  padding: 3px 0px;
+  border-radius: 3px; /*css3属性IE不支持*/
+  padding-left: 5px;
+  margin: 16rpx 24rpx;
 }
