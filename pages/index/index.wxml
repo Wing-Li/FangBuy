@@ -1,0 +1,7 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="item">
+    <input placeholder='面积'></input>
+    <input placeholder='总价'></input>
+  </view>
+</view>
