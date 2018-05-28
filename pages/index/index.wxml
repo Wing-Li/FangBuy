@@ -1,7 +1,12 @@
 <!--index.wxml-->
 <view class="container">
   <view class="item">
-    <input placeholder='面积'></input>
-    <input placeholder='总价'></input>
+    <input class='item-input' placeholder='总价'></input>
+    <input class='item-input' placeholder='面积'></input>
   </view>
+  <view class="item">
+    <input class='item-input' placeholder='评估总价'></input>
+    <input class='item-input' placeholder='评估单价'></input>
+  </view>
+
 </view>
