@@ -15,11 +15,17 @@ Page({
     ShouFuBL: 0.3,
     ShouFu: 0.0,
 
+    ZhongJieFeiBL: 0.03,
+    ZhongJieFei: 0.0,
+
     QiShuiBL: 0.01,
     QiShui: 0.0,
 
     GeShuiBL: 0.01,
     GeShui: 0.0,
+
+    DanBaoFeiBL: 0.015,
+    DanBaoFei: 0.0,
 
     PingGuFeiBL: 0.003,
     PingGuFei: 0.0,
@@ -103,6 +109,24 @@ Page({
   },
 
   /**
+   * 中介费
+   */
+  bindZhongJieFeiBL: function (e) {
+    this.setData({
+      ZhongJieFeiBL: e.detail.value
+    }, function () {
+      that.calculationResults();
+    })
+  },
+  bindZhongJieFei: function (e) {
+    this.setData({
+      ZhongJieFei: e.detail.value
+    }, function () {
+      that.calculationResults();
+    })
+  },
+
+  /**
    * 契税
    */
   bindQiShuiBL: function (e) {
@@ -133,6 +157,24 @@ Page({
   bindGeShui: function (e) {
     this.setData({
       GeShui: e.detail.value
+    }, function () {
+      that.calculationResults();
+    })
+  },
+
+  /**
+   * 担保按揭费
+   */
+  bindDanBaoFeiBL: function (e) {
+    this.setData({
+      DanBaoFeiBL: e.detail.value
+    }, function () {
+      that.calculationResults();
+    })
+  },
+  bindDanBaoFei: function (e) {
+    this.setData({
+      DanBaoFei: e.detail.value
     }, function () {
       that.calculationResults();
     })
@@ -212,22 +254,28 @@ Page({
     var chaJia = d.ZongJia - d.PingGuJia;
     // 首付
     var shouFu = d.PingGuJia * d.ShouFuBL;
+    // 中介费
+    var zhongJieFei = d.ZongJia * d.ZhongJieFeiBL;
     // 契税
     var qiShui = d.PingGuJia * d.QiShuiBL;
     // 个税
     var geShui = d.PingGuJia * d.GeShuiBL;
+    // 担保按揭费
+    var danBaoFei = d.PingGuJia * 0.7 * d.DanBaoFeiBL;
     // 评估费
     var pingGuFei = d.PingGuJia * d.PingGuFeiBL;
     
     // 总首付款
-    var zong = d.ChaJia + d.ShouFuBL + d.QiShui + d.GeShui + d.PingGuFei + d.DengJiFei + d.GuoHuFei + d.DaXiuJiJin + d.QiTa;
+    var zong = chaJia + shouFu + zhongJieFei + qiShui + geShui + danBaoFei + pingGuFei + d.GuoHuFei + d.DaXiuJiJin + d.QiTa;
 
     this.setData({
       PingGuDanJia: pingGuDanJia,
       ChaJia: chaJia,
       ShouFu: shouFu,
+      ZhongJieFei: zhongJieFei,
       QiShui: qiShui,
       GeShui: geShui,
+      DanBaoFei: danBaoFei,
       PingGuFei: pingGuFei,
       
       ZongShouFu: zong,
