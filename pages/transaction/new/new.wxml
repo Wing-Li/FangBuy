@@ -1,2 +1,60 @@
 <!--pages/transaction/new/new.wxml-->
-<text>pages/transaction/new/new.wxml</text>
+<view>
+  <scroll-view class='container' style='height:{{SystemHeight}}px' scroll-y='true'>
+
+    <view class="item">
+      <text class='item-text'>单价</text>
+      <input class='item-input1' value='{{DanJia}}' type='digit' placeholder='评估单价：' bindinput='bindDanJia'></input>
+    </view>
+    <view class="item">
+      <text class='item-text'>面积</text>
+      <input class='item-input1' type='digit' placeholder='面积：' bindinput='bindMianJi'></input>
+    </view>
+    <view class="item">
+      <text class='item-text'>总价</text>
+      <input class='item-input1' type='digit' placeholder='总价：' bindinput='bindZongJia'></input>
+    </view>
+    <view class="item">
+      <text class='item-text'>购买的第几套房</text>
+      <input class='item-input1' type='number' bindinput='bindTaoShu'></input>
+    </view>
+
+
+    <view style="height:36rpx;" />
+
+    <view class="item">
+      <text class='item-text'>首付：</text>
+      <input class='item-input1' value='{{ShouFuBL}}' type='digit' bindinput='bindShouFuBL'></input>
+      <input class='item-input2' value='{{ShouFu}}' type='digit' bindinput='bindShouFu'></input>
+    </view>
+    <view class="item">
+      <text class='item-text'>契税：</text>
+      <input class='item-input1' value='{{QiShuiBL}}' type='digit' bindinput='bindQiShuiBL'></input>
+      <input class='item-input2' value='{{QiShui}}' type='digit' bindinput='bindQiShui'></input>
+    </view>
+    <view class="item">
+      <text class='item-text'>担保按揭:</text>
+      <input class='item-input1' value='{{DanBaoFeiBL}}' type='digit' bindinput='bindDanBaoFeiBL'></input>
+      <input class='item-input2' value='{{DanBaoFei}}' type='digit' bindinput='bindDanBaoFei'></input>
+    </view>
+    <view class="item">
+      <text class='item-text'>大修基金：</text>
+      <input class='item-input1' value='{{DaXiuJiJin}}' type='digit' bindinput='bindDaXiuJiJin'></input>
+    </view>
+    <view class="item">
+      <text class='item-text'>登记费：</text>
+      <input class='item-input1' value='{{DengJiFei}}' type='digit' bindinput='bindDengJiFei'></input>
+    </view>
+    <view class="item">
+      <text class='item-text'>其他：</text>
+      <input class='item-input1' value='{{QiTa}}' type='digit' bindinput='bindQiTa'></input>
+    </view>
+
+  </scroll-view>
+
+  <view class="bottom">
+    <text class="price">总首付款：{{ZongShouFu}}</text>
+    <button class="btn" type='primary'>计 算</button>
+  </view>
+
+</view>

@@ -1,1 +1,2 @@
 /* pages/transaction/new/new.wxss */
+@import "../transaction.wxss";

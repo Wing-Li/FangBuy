@@ -7,3 +7,12 @@ page {
   line-height: 1.6;
   font-family: "微软雅黑";
 }
+
+.btn {
+  height: 68rpx;
+  padding: 0 36rpx;
+  display: flex;
+  font-size: 28rpx;
+  line-height: 1;
+  align-items: center;
+}
