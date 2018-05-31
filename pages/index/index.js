@@ -5,6 +5,7 @@ var that;
 
 Page({
   data: {
+    SystemHeight: wx.getSystemInfoSync().screenHeight * 0.82,
     ZongJia: 0.0,
     MianJi: 0.0,
     PingGuJia: 0.0,
@@ -44,11 +45,6 @@ Page({
   onLoad: function () {
     that = this;
   },
-
-  // test: function () {
-  //   var s = this.data.ZongJia;
-  //   console.log(s);
-  // },
 
   bindZongJia: function (e) {
     this.setData({
