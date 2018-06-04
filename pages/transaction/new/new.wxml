@@ -54,7 +54,7 @@
 
   <view class="bottom">
     <text class="price">总首付款：{{ZongShouFu}}</text>
-    <button class="btn" type='primary'>计 算</button>
+    <button class="btn" type='primary' bindtap='calculationResults'>计 算</button>
   </view>
 
 </view>

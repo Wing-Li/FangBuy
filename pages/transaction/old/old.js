@@ -49,7 +49,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    that = this;
+    that = this.data;
   },
 
   /**
@@ -103,31 +103,84 @@ Page({
 
   
   bindZongJia: function (e) {
+    var zongjia = e.detail.value;
+    var zhongjiefei = zongjia * that.ZhongJieFeiBL;
+    var chajia = zongjia - that.PingGuJia;
+
     this.setData({
-      ZongJia: e.detail.value
-    }, function () {
-      that.calculationResults()
+      ZongJia: zongjia,
+      ZhongJieFei: zhongjiefei,
+      ChaJia: chajia
     })
   },
+
   bindMianJi: function (e) {
+    var mianji = e.detail.value;
+    var danjia = that.PingGuJia / mianji;
+
     this.setData({
-      MianJi: e.detail.value
-    }, function () {
-      that.calculationResults()
+      MianJi: mianji,
+      PingGuDanJia: danjia
     })
   },
+
   bindPingGuJia: function (e) {
+    var pinggujia = e.detail.value;
+
+    // 评估单价
+    var pingGuDanJia = pinggujia / that.MianJi;
+    // 评估差价
+    var chaJia = that.ZongJia - pinggujia;
+    // 首付
+    var shouFu = pinggujia * that.ShouFuBL;
+    // 契税
+    var qiShui = pinggujia * that.QiShuiBL;
+    // 个税
+    var geShui = pinggujia * that.GeShuiBL;
+    // 担保按揭费
+    var danBaoFei = pinggujia * 0.7 * that.DanBaoFeiBL;
+    // 评估费
+    var pingGuFei = pinggujia * that.PingGuFeiBL;
+
+
     this.setData({
-      PingGuJia: e.detail.value
-    }, function () {
-      that.calculationResults();
+      PingGuJia: pinggujia,
+      PingGuDanJia: pingGuDanJia,
+      ChaJia: chaJia,
+      ShouFu: shouFu,
+      QiShui: qiShui,
+      GeShui: geShui,
+      DanBaoFei: danBaoFei,
+      PingGuFei: pingGuFei
     })
   },
+
   bindPingGuDanJia: function (e) {
+    var pinggudanjia = e.detail.value;
+    var pinggujia = pinggudanjia * that.MianJi;
+
+    // 评估差价
+    var chaJia = that.ZongJia - pinggujia;
+    // 首付
+    var shouFu = pinggujia * that.ShouFuBL;
+    // 契税
+    var qiShui = pinggujia * that.QiShuiBL;
+    // 个税
+    var geShui = pinggujia * that.GeShuiBL;
+    // 担保按揭费
+    var danBaoFei = pinggujia * 0.7 * that.DanBaoFeiBL;
+    // 评估费
+    var pingGuFei = pinggujia * that.PingGuFeiBL;
+
     this.setData({
-      PingGuDanJia: e.detail.value
-    }, function () {
-      that.calculationResults();
+      PingGuJia: pinggujia,
+      PingGuDanJia: pinggudanjia,
+      ChaJia: chaJia,
+      ShouFu: shouFu,
+      QiShui: qiShui,
+      GeShui: geShui,
+      DanBaoFei: danBaoFei,
+      PingGuFei: pingGuFei
     })
   },
 
@@ -136,9 +189,7 @@ Page({
    */
   bindChaJia: function (e) {
     this.setData({
-      ChaJia: e.detail.value
-    }, function () {
-      that.calculationResults();
+      ChaJia: parseInt(e.detail.value)
     })
   },
 
@@ -146,17 +197,16 @@ Page({
    * 首付
    */
   bindShouFuBL: function (e) {
+    var shoufubl = e.detail.value;
+    var shoufu = that.PingGuJia * shoufubl;
     this.setData({
-      ShouFuBL: e.detail.value
-    }, function () {
-      that.calculationResults();
+      ShouFuBL: shoufubl,
+      ShouFu: shoufu
     })
   },
   bindShouFu: function (e) {
     this.setData({
-      ShouFu: e.detail.value
-    }, function () {
-      that.calculationResults();
+      ShouFu: parseInt(e.detail.value)
     })
   },
 
@@ -164,17 +214,16 @@ Page({
    * 中介费
    */
   bindZhongJieFeiBL: function (e) {
+    var zhongjiefeibl = e.detail.value;
+    var zhongjiefei = that.PingGuJia * zhongjiefeibl;
     this.setData({
-      ZhongJieFeiBL: e.detail.value
-    }, function () {
-      that.calculationResults();
+      ZhongJieFeiBL: zhongjiefeibl,
+      ZhongJieFei: zhongjiefei
     })
   },
   bindZhongJieFei: function (e) {
     this.setData({
-      ZhongJieFei: e.detail.value
-    }, function () {
-      that.calculationResults();
+      ZhongJieFei: parseInt(e.detail.value)
     })
   },
 
@@ -182,17 +231,16 @@ Page({
    * 契税
    */
   bindQiShuiBL: function (e) {
+    var qishuibl = e.detail.value;
+    var qishui = that.PingGuJia * qishuibl;
     this.setData({
-      QiShuiBL: e.detail.value
-    }, function () {
-      that.calculationResults();
+      QiShuiBL: qishuibl,
+      QiShui: qishui
     })
   },
   bindQiShui: function (e) {
     this.setData({
-      QiShui: e.detail.value
-    }, function () {
-      that.calculationResults();
+      QiShui: parseInt(e.detail.value)
     })
   },
 
@@ -200,17 +248,16 @@ Page({
    * 个税
    */
   bindGeShuiBL: function (e) {
+    var geshuibl = e.detail.value;
+    var geshui = that.PingGuJia * geshuibl;
     this.setData({
-      GeShuiBL: e.detail.value
-    }, function () {
-      that.calculationResults();
+      GeShuiBL: geshuibl,
+      GeShui: geshui
     })
   },
   bindGeShui: function (e) {
     this.setData({
-      GeShui: e.detail.value
-    }, function () {
-      that.calculationResults();
+      GeShui: parseInt(e.detail.value)
     })
   },
 
@@ -218,17 +265,16 @@ Page({
    * 担保按揭费
    */
   bindDanBaoFeiBL: function (e) {
+    var danbaofeibl = e.detail.value;
+    var danbaofei = that.PingGuJia * danbaofeibl;
     this.setData({
-      DanBaoFeiBL: e.detail.value
-    }, function () {
-      that.calculationResults();
+      DanBaoFeiBL: danbaofeibl,
+      DanBaoFei: danbaofei
     })
   },
   bindDanBaoFei: function (e) {
     this.setData({
-      DanBaoFei: e.detail.value
-    }, function () {
-      that.calculationResults();
+      DanBaoFei: parseInt(e.detail.value)
     })
   },
 
@@ -236,17 +282,16 @@ Page({
    * 评估费
    */
   bindPingGuFeiBL: function (e) {
+    var pinggufeibl = e.detail.value;
+    var pinggufei = that.PingGuJia * pinggufeibl;
     this.setData({
-      PingGuFeiBL: e.detail.value
-    }, function () {
-      that.calculationResults();
+      PingGuFeiBL: pinggufeibl,
+      PingGuFei: pinggufei
     })
   },
   bindPingGuFei: function (e) {
     this.setData({
-      PingGuFei: e.detail.value
-    }, function () {
-      that.calculationResults();
+      PingGuFei: parseInt(e.detail.value)
     })
   },
 
@@ -255,9 +300,7 @@ Page({
    */
   bindDengJiFei: function (e) {
     this.setData({
-      DengJiFei: e.detail.value
-    }, function () {
-      that.calculationResults();
+      DengJiFei: parseInt(e.detail.value)
     })
   },
 
@@ -266,9 +309,7 @@ Page({
    */
   bindGuoHuFei: function (e) {
     this.setData({
-      GuoHuFei: e.detail.value
-    }, function () {
-      that.calculationResults();
+      GuoHuFei: parseInt(e.detail.value)
     })
   },
 
@@ -277,9 +318,7 @@ Page({
    */
   bindDaXiuJiJin: function (e) {
     this.setData({
-      DaXiuJiJin: e.detail.value
-    }, function () {
-      that.calculationResults();
+      DaXiuJiJin: parseInt(e.detail.value)
     })
   },
 
@@ -288,9 +327,7 @@ Page({
    */
   bindQiTa: function (e) {
     this.setData({
-      QiTa: e.detail.value
-    }, function () {
-      that.calculationResults();
+      QiTa: parseInt(e.detail.value)
     })
   },
 
@@ -299,36 +336,11 @@ Page({
    */
   calculationResults: function () {
     var d = this.data;
-
-    // 评估单价
-    var pingGuDanJia = d.PingGuJia / d.MianJi;
-    // 评估差价
-    var chaJia = d.ZongJia - d.PingGuJia;
-    // 首付
-    var shouFu = d.PingGuJia * d.ShouFuBL;
-    // 中介费
-    var zhongJieFei = d.ZongJia * d.ZhongJieFeiBL;
-    // 契税
-    var qiShui = d.PingGuJia * d.QiShuiBL;
-    // 个税
-    var geShui = d.PingGuJia * d.GeShuiBL;
-    // 担保按揭费
-    var danBaoFei = d.PingGuJia * 0.7 * d.DanBaoFeiBL;
-    // 评估费
-    var pingGuFei = d.PingGuJia * d.PingGuFeiBL;
     
     // 总首付款
-    var zong = chaJia + shouFu + zhongJieFei + qiShui + geShui + danBaoFei + pingGuFei + d.GuoHuFei + d.DaXiuJiJin + d.QiTa;
+    var zong = d.ChaJia + d.ShouFu + d.ZhongJieFei + d.QiShui + d.GeShui + d.DanBaoFei + d.PingGuFei + d.GuoHuFei + d.DaXiuJiJin + d.QiTa;
 
     this.setData({
-      PingGuDanJia: pingGuDanJia,
-      ChaJia: chaJia,
-      ShouFu: shouFu,
-      ZhongJieFei: zhongJieFei,
-      QiShui: qiShui,
-      GeShui: geShui,
-      DanBaoFei: danBaoFei,
-      PingGuFei: pingGuFei,
       
       ZongShouFu: zong,
     })
