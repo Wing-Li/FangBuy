@@ -4,17 +4,17 @@
 
     <view class="item">
       <text class='item-text'>单价</text>
-      <input class='item-input1' value='{{DanJia}}' type='digit' placeholder='评估单价：' bindinput='bindDanJia'></input>
+      <input class='item-input1' type='digit' placeholder='单价' bindinput='bindDanJia'></input>
     </view>
     <view class="item">
       <text class='item-text'>面积</text>
-      <input class='item-input1' type='digit' placeholder='面积：' bindinput='bindMianJi'></input>
+      <input class='item-input1' type='digit' placeholder='面积' bindinput='bindMianJi'></input>
     </view>
     <view class="item">
       <text class='item-text'>总价</text>
-      <input class='item-input1' type='digit' placeholder='总价：' bindinput='bindZongJia'></input>
+      <input class='item-input1' type='digit' value='{{ZongJia}}' placeholder='总价' bindinput='bindZongJia'></input>
     </view>
-    <view class="item">
+    <view class="item" style="display:none;">
       <text class='item-text'>购买的第几套房</text>
       <input class='item-input1' type='number' bindinput='bindTaoShu'></input>
     </view>
@@ -38,8 +38,9 @@
       <input class='item-input2' value='{{DanBaoFei}}' type='digit' bindinput='bindDanBaoFei'></input>
     </view>
     <view class="item">
-      <text class='item-text'>大修基金：</text>
-      <input class='item-input1' value='{{DaXiuJiJin}}' type='digit' bindinput='bindDaXiuJiJin'></input>
+      <text class='item-text'>大修基金:</text>
+      <input class='item-input1' value='{{DaXiuJiJinBL}}' type='digit' bindinput='bindDaXiuJiJinBL'></input>
+      <input class='item-input2' value='{{DaXiuJiJin}}' type='digit' bindinput='bindDaXiuJiJin'></input>
     </view>
     <view class="item">
       <text class='item-text'>登记费：</text>

@@ -6,3 +6,25 @@
   flex-direction: column;
   justify-content: space-around;
 }
+
+.container .item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.container .item .block {
+  width: 40vw;
+  height: 40vw;
+  margin: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 4rpx 4rpx 8rpx #aaa;
+  font-size: 42rpx;
+  letter-spacing: 10rpx;
+  font-weight: bold;
+  font-family: 微软雅黑;
+  background: #fffff3;
+  color: #a593e0;
+}

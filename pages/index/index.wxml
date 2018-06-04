@@ -1,5 +1,7 @@
 <!--index.wxml-->
 <view class="container">
-    <button class="btn" bindtap="bindNew">买新房</button>
-    <button class="btn" bindtap="bindOld">买二手房</button>
+  <view class="item">
+    <button class="block" bindtap="bindNew">买新房</button>
+    <button class="block" bindtap="bindOld">买二手房</button>
+  </view>
 </view>

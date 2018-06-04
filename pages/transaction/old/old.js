@@ -37,12 +37,12 @@ Page({
     DengJiFei: 80,
 
     GuoHuFei: 600,
-    
+
     DaXiuJiJin: 0.0,
 
     QiTa: 0.0,
 
-    ZongShouFu:0.0,
+    ZongShouFu: 0.0,
   },
 
   /**
@@ -56,52 +56,52 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   },
 
-  
+
   bindZongJia: function (e) {
     var zongjia = e.detail.value;
     var zhongjiefei = zongjia * that.ZhongJieFeiBL;
@@ -138,7 +138,7 @@ Page({
     // 个税
     var geShui = pinggujia * that.GeShuiBL;
     // 担保按揭费
-    var danBaoFei = pinggujia * 0.7 * that.DanBaoFeiBL;
+    var danBaoFei = pinggujia * (1 - that.ShouFuBL) * that.DanBaoFeiBL;
     // 评估费
     var pingGuFei = pinggujia * that.PingGuFeiBL;
 
@@ -168,7 +168,7 @@ Page({
     // 个税
     var geShui = pinggujia * that.GeShuiBL;
     // 担保按揭费
-    var danBaoFei = pinggujia * 0.7 * that.DanBaoFeiBL;
+    var danBaoFei = pinggujia * (1 - that.ShouFuBL) * that.DanBaoFeiBL;
     // 评估费
     var pingGuFei = pinggujia * that.PingGuFeiBL;
 
@@ -199,14 +199,19 @@ Page({
   bindShouFuBL: function (e) {
     var shoufubl = e.detail.value;
     var shoufu = that.PingGuJia * shoufubl;
+    var danbaofei = that.PingGuJia * (1 - shoufubl) * that.DanBaoFeiBL;
     this.setData({
       ShouFuBL: shoufubl,
-      ShouFu: shoufu
+      ShouFu: shoufu,
+      DanBaoFei: danbaofei
     })
   },
   bindShouFu: function (e) {
+    var shoufu = parseInt(e.detail.value);
+    var danbaofei = (that.PingGuJia - shoufu) * that.DanBaoFeiBL;
     this.setData({
-      ShouFu: parseInt(e.detail.value)
+      ShouFu: shoufu,
+      DanBaoFei: danbaofei
     })
   },
 
@@ -266,7 +271,7 @@ Page({
    */
   bindDanBaoFeiBL: function (e) {
     var danbaofeibl = e.detail.value;
-    var danbaofei = that.PingGuJia * danbaofeibl;
+    var danbaofei = that.PingGuJia * (1 - that.ShouFuBL) * danbaofeibl;
     this.setData({
       DanBaoFeiBL: danbaofeibl,
       DanBaoFei: danbaofei
@@ -336,12 +341,12 @@ Page({
    */
   calculationResults: function () {
     var d = this.data;
-    
+
     // 总首付款
-    var zong = d.ChaJia + d.ShouFu + d.ZhongJieFei + d.QiShui + d.GeShui + d.DanBaoFei + d.PingGuFei + d.GuoHuFei + d.DaXiuJiJin + d.QiTa;
+    var zong = d.ChaJia + d.ShouFu + d.ZhongJieFei + d.QiShui + d.GeShui + d.DanBaoFei + d.PingGuFei + d.DengJiFei + d.GuoHuFei + d.DaXiuJiJin + d.QiTa;
 
     this.setData({
-      
+
       ZongShouFu: zong,
     })
   }
