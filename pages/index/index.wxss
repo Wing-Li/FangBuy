@@ -20,14 +20,14 @@ page {
 .header .round {
   width: 70vw;
   height: 70vw;
-  margin-top: 5vw;
+  margin-top: 10vw;
   display: flex;
   align-items: center;
   justify-content: center;
   border-style: solid;
   border-width: 1rpx;
   border-radius: 50%;
-  border: 8rpx solid #d7d7d7;
+  border: 4rpx solid #cccccc;
 }
 
 .header .round .content {
@@ -36,7 +36,7 @@ page {
   border-style: solid;
   border-width: 1rpx;
   border-radius: 50%;
-  border: 6rpx solid #e7e7e7;
+  border: 3rpx solid #e7e7e7;
 }
 
 .container .item {
@@ -45,35 +45,31 @@ page {
   justify-content: space-around;
 }
 
-.container .item .help {
-  width: 85vw;
+.container .help {
+  width: 84vw;
   height: 15vw;
-  margin: 24rpx;
+  margin: 64rpx auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 4rpx 4rpx 8rpx #aaa;
-  font-size: 32rpx;
-  letter-spacing: 10rpx;
+  font-size: 28rpx;
   font-weight: bold;
   font-family: 微软雅黑;
-  background: #eeeeee;
+  background: #F8F8F8;
   color: #888;
 }
 
 .container .item .block {
-  width: 35vw;
+  width: 32vw;
   height: 10vw;
   margin: 24rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 4rpx 4rpx 8rpx #aaa;
   font-size: 32rpx;
-  letter-spacing: 10rpx;
   font-weight: bold;
   font-family: 微软雅黑;
-  background: #fffff3;
+  background: #fff;
   color: #a593e0;
 }
 
@@ -82,16 +78,14 @@ page {
   display: flex;
   justify-content: center;
   font-size: 28rpx;
-  color: #666;
-  text-decoration: underline;
+  color: #666;  
   font-family: 微软雅黑;
 }
 
-.share-app {
+.bottom {
   position: fixed;
-  margin-right: 64rpx;
-  margin-bottom: 64rpx;
-  right: 0;
   bottom: 0;
+  width: 100vw;
+  margin: 64rpx auto;
   font-size: 36rpx;
 }

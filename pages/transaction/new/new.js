@@ -67,6 +67,17 @@ Page({
 
   },
 
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function (res) {
+    return {
+      title: '买房首付款计算器',
+      path: 'pages/index/index',
+      imageUrl: '../../../assets/img/share_img.jpg'
+    }
+  },
+
   bindDanJia: function (e) {
     var danjia = e.detail.value;
     var zongjia = danjia * that.MianJi;

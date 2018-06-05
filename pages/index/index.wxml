@@ -8,23 +8,25 @@
       </view>
     </view>
 
-    <view class="item" style='margin-top:30rpx;'>
-      <text class='help'>最详细的新房、二手房交易流程 \r\n买房卖房都用得上</text>
+    <view class="help" hover-class='btn-hover' bindtap='bindHelpDoc'>
+      <image style='width:82rpx; height:82rpx;margin-right:24rpx;' src='../../assets/img/help_word.png'></image>
+      <text class=''>超详细的新房、二手房交易流程 \r\n买房卖房都用得上，点击此处查看</text>
     </view>
 
-    <hr style="margin: 24rpx auto; width: 45vw; height:1px; border:none; border-top:1px solid #999;" />
+    <hr style="margin: 64rpx auto 42rpx auto; width: 80vw; height:0.3rpx; border:none; border-top:0.3rpx solid #999;" />
 
     <view class="item">
+      <view style='width:7vw;'></view>
       <button class="block" bindtap="bindNew">买新房</button>
       <button class="block" bindtap="bindOld">买二手房</button>
+      <view style='width:7vw;'></view>
     </view>
     <view class="item">
+      <view style='width:7vw;'></view>
       <text class="way" hover-class='btn-hover' bindtap="bindNewDoc">新房税费参考</text>
       <text class="way" hover-class='btn-hover' bindtap="bindOldDoc">二手房参考</text>
+      <view style='width:7vw;'></view>
     </view>
 
   </view>
-
-  <button class="share-app" open-type='share'>分享给好友</button>
-
 </view>

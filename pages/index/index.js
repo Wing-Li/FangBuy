@@ -17,13 +17,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res) {
-    if (res.from === 'button') {
-      // 来自页面内转发按钮
-      console.log(res.target)
-    }
     return {
       title: '买房首付款计算器',
-      path: 'pages/index/index'
+      path: 'pages/index/index',
+      imageUrl: '../../assets/img/share_img.jpg'
     }
   },
 
