@@ -1,6 +1,19 @@
 <!--index.wxml-->
 <view>
   <view class="container">
+
+    <view class='header'>
+      <view class="round" bindtap='bindHelpDoc'>
+        <image class='content' src='../../assets/img/house_icon.png'></image>
+      </view>
+    </view>
+
+    <view class="item" style='margin-top:30rpx;'>
+      <text class='help'>最详细的新房、二手房交易流程 \r\n买房卖房都用得上</text>
+    </view>
+
+    <hr style="margin: 24rpx auto; width: 45vw; height:1px; border:none; border-top:1px solid #999;" />
+
     <view class="item">
       <button class="block" bindtap="bindNew">买新房</button>
       <button class="block" bindtap="bindOld">买二手房</button>
@@ -10,9 +23,6 @@
       <text class="way" hover-class='btn-hover' bindtap="bindOldDoc">二手房参考</text>
     </view>
 
-    <view class="item-help" bindtap='bindHelpDoc'>
-      <text class="content">最详细的新房、二手房交易流程 \r\n买房卖房都用得上</text>
-    </view>
   </view>
 
   <button class="share-app" open-type='share'>分享给好友</button>
