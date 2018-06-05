@@ -1,7 +1,20 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="item">
-    <button class="block" bindtap="bindNew">买新房</button>
-    <button class="block" bindtap="bindOld">买二手房</button>
+<view>
+  <view class="container">
+    <view class="item">
+      <button class="block" bindtap="bindNew">买新房</button>
+      <button class="block" bindtap="bindOld">买二手房</button>
+    </view>
+    <view class="item">
+      <text class="way" hover-class='btn-hover' bindtap="bindNewDoc">新房税费参考</text>
+      <text class="way" hover-class='btn-hover' bindtap="bindOldDoc">二手房参考</text>
+    </view>
+
+    <view class="item-help" bindtap='bindHelpDoc'>
+      <text class="content">最详细的新房、二手房交易流程 \r\n买房卖房都用得上</text>
+    </view>
   </view>
+
+  <button class="share-app" open-type='share'>分享给好友</button>
+
 </view>

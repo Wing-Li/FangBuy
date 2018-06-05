@@ -16,3 +16,7 @@ page {
   line-height: 1;
   align-items: center;
 }
+
+.btn-hover {
+  background-color: #eee;
+}
