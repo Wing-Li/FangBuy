@@ -12,7 +12,6 @@ Page({
 
   },
 
-
   /**
    * 用户点击右上角分享
    */
@@ -43,119 +42,25 @@ Page({
    * 跳转到文档页面
    */
   bindNewDoc: function () {
-    wx.showLoading({
-      title: '加载中',
-    })
-    wx.downloadFile({
-      url: 'https://wycode.cn/upload/lyl/BuyNewHouse.docx',
-      success: function (res) {
-        var filePath = res.tempFilePath
-        wx.openDocument({
-          filePath: filePath,
-          success: function (res) {
-            console.log('打开文档成功')
-            wx.hideLoading()
-          },
-          fail: function (res) {
-            wx.hideLoading()
-            wx.showToast({
-              title: '加载失败',
-              icon: 'none',
-              duration: 1500
-            })
-          }
-        })
-      },
-      fail: function (res) {
-        wx.hideLoading()
-        wx.showToast({
-          title: '加载失败',
-          icon: 'none',
-          duration: 1500
-        })
-      }
+    wx.navigateTo({
+      url: '/pages/doc/doc?type=buyNew'
     })
   },
   bindOldDoc: function () {
-    wx.showLoading({
-      title: '加载中',
-    })
-    wx.downloadFile({
-      url: 'https://wycode.cn/upload/lyl/BuyOldHouse.docx',
-      success: function (res) {
-        var filePath = res.tempFilePath
-        wx.openDocument({
-          filePath: filePath,
-          success: function (res) {
-            console.log('打开文档成功')
-            wx.hideLoading()
-          },
-          fail: function (res) {
-            wx.hideLoading()
-            wx.showToast({
-              title: '加载失败',
-              icon: 'none',
-              duration: 1500
-            })
-          }
-        })
-      },
-      fail: function (res) {
-        wx.hideLoading()
-        wx.showToast({
-          title: '加载失败',
-          icon: 'none',
-          duration: 1500
-        })
-      }
+    wx.navigateTo({
+      url: '/pages/doc/doc?type=buyOld'
     })
 
   },
-
-
-  bindHelpDoc: function () {
-    wx.showLoading({
-      title: '加载中',
-    })
-    wx.downloadFile({
-      url: 'https://wycode.cn/upload/lyl/BuyHouseHelp.docx',
-      success: function (res) {
-        var filePath = res.tempFilePath
-        wx.openDocument({
-          filePath: filePath,
-          success: function (res) {
-            console.log('打开文档成功')
-            wx.hideLoading()
-          },
-          fail: function (res) {
-            wx.hideLoading()
-            wx.showToast({
-              title: '加载失败',
-              icon: 'none',
-              duration: 1500
-            })
-          }
-        })
-      },
-      fail: function (res) {
-        wx.hideLoading()
-        wx.showToast({
-          title: '加载失败',
-          icon: 'none',
-          duration: 1500
-        })
-      }
-    })
-
-  },
-
 
   /**
-   * 分享本程序
+   * 跳转到买房流程
    */
-  bindShareApp: function () {
+  bindHelpDoc: function () {
+    wx.navigateTo({
+      url: '/pages/doc/doc?type=buyHelp'
+    })
 
   },
-
 
 })
