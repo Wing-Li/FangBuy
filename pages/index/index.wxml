@@ -2,6 +2,8 @@
 <view>
   <view class="container">
 
+    <image class='about' src='../../assets/img/about.png' bindtap='bindAbout'></image>
+
     <view class='header'>
       <view class="round" bindtap='bindHelpDoc'>
         <image class='content' src='../../assets/img/house_icon.png'></image>

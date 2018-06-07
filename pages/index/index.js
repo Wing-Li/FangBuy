@@ -24,6 +24,15 @@ Page({
   },
 
   /**
+   * 跳转到关于页面
+   */
+  bindAbout: function (){
+    wx.navigateTo({
+      url: '/pages/about/suggestion/suggestion'
+    })
+  },
+
+  /**
    * 跳转到计算页面
    */
   bindNew: function () {

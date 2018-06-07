@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/doc/doc",
     "pages/transaction/new/new",
-    "pages/transaction/old/old"
+    "pages/transaction/old/old",
+    "pages/about/suggestion/suggestion"
   ],
   "window": {
     "backgroundTextStyle": "light",
