@@ -1,0 +1,24 @@
+/* pages/about/suggestion/suggestion.wxss */
+
+.input {
+  width: 94%;
+  height: 70vh;
+  padding: 24rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  font-family: 微软雅黑;
+  border: 1.5rpx solid #aaa;
+  border-left-style: none;
+  border-right-style: none;
+  background: #fff;
+  color: #000;
+}
+
+.input-btn {
+  position: fixed;
+  bottom: 0;
+  width: 80%;
+  margin-left: 10vw;
+  margin-bottom: 48rpx;
+  border: 1rpx solid #aaa;
+}
